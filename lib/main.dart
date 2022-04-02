@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       'What\'s your favorite color?',
       'What\'s your favorite animal?',
     ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -29,15 +30,15 @@ class MyApp extends StatelessWidget {
             Text('Sorular!'),
             RaisedButton(
               child: Text('Cevap 1'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Cevap 1 seçildi!'),
             ),
             RaisedButton(
               child: Text('Cevap 2'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Cevap 2 seçildi!'),
             ),
             RaisedButton(
               child: Text('Cevap 3'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Cevap 3 seçildi!'),
             ),
           ],
         ),
