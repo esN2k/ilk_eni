@@ -6,6 +6,7 @@
     "configurations": [
         {
             "name": "ilk_eni",
+            "program": "C:\\Users\\dodik\\AndroidStudioProjects\\ilk_eni\\lib\\main.dart",
             "request": "launch",
             "type": "dart"
         },
