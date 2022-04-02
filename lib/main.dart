@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.lightBlue,
           title: Text("İlk Uygulamam"),
         ),
+        body: Text("Default Text"),
       ),
     );
   }
