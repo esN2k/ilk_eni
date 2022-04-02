@@ -7,6 +7,13 @@ import 'package:flutter/material.dart';
 // }
 void main() => runApp(MyApp());
 
+class MySecondApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Text("Merhaba"));
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
