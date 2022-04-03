@@ -7,17 +7,14 @@ import 'dart:math'; //Sorulan sorular için gerekli olan rastgele
 //   runApp(MyApp());
 // }
 
-//void main() => runApp(
-//    MyApp()); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
-void main() {
-  runApp(MaterialApp(home: MyApp()));
-}
+//void main() {
+//runApp(MaterialApp(home: MyApp()));
+//}
 
+void main() => runApp(MaterialApp(
+    home:
+        MyApp())); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
 class MyApp extends StatelessWidget {
-  void _incrementCounter() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     Random random = Random(); //Random, MyApp'ın hazır tanımladığı bir metod.
@@ -34,9 +31,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Artış',
-          child: const Icon(Icons.add),
+          onPressed: () => Text(sorular[randomSoru]),
+          tooltip: 'Soruyu Değiştir',
+          child: const Icon(Icons.refresh),
         ),
         appBar: AppBar(
           backgroundColor: Colors.lightBlue,
@@ -67,6 +64,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-
-  void setState(Null Function() param0) {}
 }
