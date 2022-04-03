@@ -5,18 +5,21 @@ import 'package:flutter/material.dart';
 // void main() {
 //   runApp(MyApp());
 // }
-void main() => runApp(MyApp());
+void main() => runApp(
+    MyApp()); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
 
 class MyApp extends StatelessWidget {
+  //
   void answerQuestion() {
-    print('Cevap Verildi');
+    print('Answer Verildi');
   }
 
   @override
   Widget build(BuildContext context) {
     var sorular = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
+      'What\'s your favorite color?', //0
+      'What\'s your favorite song?', //1
+      'What\'s your favorite animal?', //2
     ];
 
     return MaterialApp(
@@ -27,19 +30,23 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text('Sorular!'),
+            Text(
+              sorular.elementAt(
+                  1), //Question artık bir List, Dart'ın otomatik verdiği bir varsayılan nesne, baya methodu var.
+            ), //Liste indexleri 0 ile başlar
             RaisedButton(
-              child: Text('Cevap 1'),
-              onPressed: () => print('Cevap 1 seçildi!'),
+              child: Text('Answer 1'),
+              onPressed: () => print('Answer 1 seçildi!'),
             ),
             RaisedButton(
-              child: Text('Cevap 2'),
-              onPressed: () => print('Cevap 2 seçildi!'),
+              child: Text('Answer 2'),
+              onPressed: () => print('Answer 2 seçildi!'),
             ),
             RaisedButton(
-              child: Text('Cevap 3'),
-              onPressed: () => print('Cevap 3 seçildi!'),
-            ),
+                child: Text('Answer 3'),
+                onPressed: () {
+                  print('Answer 3 seçildi!');
+                }),
           ],
         ),
       ),
