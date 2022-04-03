@@ -6,13 +6,16 @@ import 'dart:math'; //Sorulan sorular için gerekli olan rastgele
 // void main() {
 //   runApp(MyApp());
 // }
-void main() => runApp(
-    MyApp()); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
+
+//void main() => runApp(
+//    MyApp()); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
+void main() {
+  runApp(MaterialApp(home: MyApp()));
+}
 
 class MyApp extends StatelessWidget {
-  //
-  void answerQuestion() {
-    print('Answer Verildi');
+  void _incrementCounter() {
+    setState(() {});
   }
 
   @override
@@ -30,6 +33,11 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Artış',
+          child: const Icon(Icons.add),
+        ),
         appBar: AppBar(
           backgroundColor: Colors.lightBlue,
           title: Text("İlk Uygulama"),
@@ -59,4 +67,6 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
