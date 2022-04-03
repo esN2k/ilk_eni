@@ -11,14 +11,23 @@ import 'dart:math'; //Sorulan sorular için gerekli olan rastgele
 //runApp(MaterialApp(home: MyApp()));
 //}
 
-void main() => runApp(MaterialApp(
-    home:
-        MyApp())); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
+void main() => runApp(
+      MaterialApp(home: MyApp()),
+    ); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
+
 class MyApp extends StatelessWidget {
+  int soruIndex = 0;
+
+  void soruCevap() {
+    soruIndex = soruIndex + 1;
+    print(soruIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     Random random = Random(); //Random, MyApp'ın hazır tanımladığı bir metod.
-    int randomSoru = random.nextInt(6);
+    int soruRandom = random.nextInt(6);
+
     var sorular = [
       'What\'s your favorite color?', //0
       'What\'s your favorite song?', //1
@@ -31,9 +40,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Text(sorular[randomSoru]),
+          onPressed: () => soruCevap(),
           tooltip: 'Soruyu Değiştir',
-          child: const Icon(Icons.refresh),
+          child: Icon(Icons.refresh),
         ),
         appBar: AppBar(
           backgroundColor: Colors.lightBlue,
@@ -41,14 +50,13 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text(sorular[
-                randomSoru]), //Sorular artık bir List, Dart'ın otomatik verdiği bir varsayılan nesne, baya methodu var.
-
+            Text(
+              sorular[soruIndex], //[soruRandom] da kullanılabilir.
+            ), //Sorular artık bir List, Dart'ın otomatik verdiği bir varsayılan nesne, baya methodu var.
             //Text(sorular.elementAt(randomSoru),), //Liste indexleri 0 ile başlar
-
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: () => print('Answer 1 seçildi!'),
+              onPressed: soruCevap,
             ),
             RaisedButton(
               child: Text('Answer 2'),
