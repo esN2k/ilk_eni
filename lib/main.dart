@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, unnecessary_string_escapes, prefer_const_literals_to_create_immutables, unused_local_variable, avoid_print, deprecated_member_use
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Scaffold, Buton ve AppBar için gerekli kaynaklar
+import 'dart:math'; //Sorulan sorular için gerekli olan rastgele
 
 // void main() {
 //   runApp(MyApp());
@@ -16,10 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Random random = Random(); //Random, MyApp'ın hazır tanımladığı bir metod.
+    int randomSoru = random.nextInt(6);
     var sorular = [
       'What\'s your favorite color?', //0
       'What\'s your favorite song?', //1
       'What\'s your favorite animal?', //2
+      'What\'s your favorite artist?', //3
+      'What\'s your favorite movie?', //4
+      'What\'s your favorite activity?', //5
     ];
 
     return MaterialApp(
@@ -30,10 +36,11 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text(
-              sorular.elementAt(
-                  1), //Question artık bir List, Dart'ın otomatik verdiği bir varsayılan nesne, baya methodu var.
-            ), //Liste indexleri 0 ile başlar
+            Text(sorular[
+                randomSoru]), //Sorular artık bir List, Dart'ın otomatik verdiği bir varsayılan nesne, baya methodu var.
+
+            //Text(sorular.elementAt(randomSoru),), //Liste indexleri 0 ile başlar
+
             RaisedButton(
               child: Text('Answer 1'),
               onPressed: () => print('Answer 1 seçildi!'),
