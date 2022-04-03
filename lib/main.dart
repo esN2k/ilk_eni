@@ -15,7 +15,13 @@ void main() => runApp(
       MaterialApp(home: MyApp()),
     ); //MyApp sonuç verirse main'i çalıştır, vermez ise çalıştırma
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  //State materiel'den gelen bir class
   int soruIndex = 0;
 
   void soruCevap() {
